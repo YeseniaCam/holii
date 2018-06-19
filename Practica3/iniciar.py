@@ -3,23 +3,21 @@ from automata.automatas import AFDDefiner, AFNDefiner
 from automata.transformacion import TransformToAFD
 from expresiones.analizador import Analizer
 class Inicio:
-    
     def TransformAFNtoAFD(self):
         print('Transformando AFN a AFD')
         afn = AFNDefiner()
         afn.AddAlphabet({'a', 'b'})
         afn.AddState(0)
         afn.AddState(1)
-      	afn.AddState(2)
-      	afn.AddState(3)
-      	afn.AddState(4)
-      	afn.AddState(5)
-      	afn.AddState(6)
-      	afn.AddState(7)
-      	afn.AddState(8)
-      	afn.AddState(9)
-      	afn.AddState(10)
-
+        afn.AddState(2)
+        afn.AddState(3)
+        afn.AddState(4)
+        afn.AddState(5)
+        afn.AddState(6)
+        afn.AddState(7)
+        afn.AddState(8)
+        afn.AddState(9)
+        afn.AddState(10)
         afn.AddInitial(0)
         afn.AddFinals({10})
 

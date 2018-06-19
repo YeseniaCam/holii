@@ -29,10 +29,10 @@ class TransformToAFD:
         while len(pendants) > 0:
             actual = pendants.pop()
             for simbolo in self.AFD.alfabeto:
-                estados = self.EpsilonClosure(self.Move(actual.estados, simbolo))
+                estados = self.EpsilonClosure(self.Move(actual.states, simbolo))
                 add = True
                 for i in self.lista:
-                    if i.estados == estados:
+                    if i.states == estados:
                         add = False
                         new  = i
                         break
@@ -41,15 +41,15 @@ class TransformToAFD:
                     pendants.append(new)
                     self.lista.append(new)
                     self.label = chr(ord(self.label) + 1)
-                print("Transicion %s -> %s con: %s" % (actual.estados, new.estados, simbolo))
+                print("Transicion %s -> %s con: %s" % (actual.states, new.states, simbolo))
                 self.AFD.AddTransition(actual.label, new.label, simbolo)
         
         # Obtenemos los estados finales e inicial
         for elemento in self.lista:
-            if self.AFN.initialState in elemento.estados:
+            if self.AFN.initialState in elemento.states:
                 self.AFD.initialState = elemento.label
             for final in self.AFN.finalStates: 
-                if final in elemento.estados:
+                if final in elemento.states:
                     self.AFD.finalStates.add(elemento.label)
 
     # recibe un solo elemento o un conjunto de estados
